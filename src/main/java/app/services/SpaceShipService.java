@@ -20,4 +20,8 @@ public class SpaceShipService {
     public List<SpaceShip> getAll() {
         return new ArrayList<>((Collection) spaceShipRepo.findAll());
     }
+
+    public List<SpaceShip> getActiveShips() {
+        return new ArrayList<>((Collection) spaceShipRepo.findByIsActiveTrue());
+    }
 }

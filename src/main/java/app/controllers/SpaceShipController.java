@@ -34,4 +34,12 @@ public class SpaceShipController {
         return "fleet";
     }
 
+    @GetMapping(value = {"/fleet/active"})
+    public String getActiveShips(Model model) {
+        List<SpaceShip> spaceShips = spaceShipService.getActiveShips();
+        model.addAttribute("spaceships", spaceShips);
+
+        return "fleet";
+    }
+
 }
