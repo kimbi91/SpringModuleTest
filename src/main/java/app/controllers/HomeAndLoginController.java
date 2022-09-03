@@ -44,9 +44,10 @@ public class HomeAndLoginController {
 
     @GetMapping(value = {"/regerror"})
     public String getRegErrorPage(Model model) {
+        model.addAttribute("regError", true);
         model.addAttribute("officer", new Officer());
 
-        return "regerror";
+        return "register";
     }
 
     @PostMapping(value = {"/register"})

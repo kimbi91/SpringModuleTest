@@ -8,6 +8,7 @@
 <body>
 <div id="container">
     <div>
+        <p data-th-if="${regError}" class="error">Username has already been taken!</p>
         <form data-th-action="@{/register}" data-th-object="${officer}" method="post">
             <table>
                 <tr>
