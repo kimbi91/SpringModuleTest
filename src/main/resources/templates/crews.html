@@ -7,6 +7,16 @@
 </head>
 <body>
 <div id="container">
+    <div >
+        <form data-th-action="@{/crews}" data-th-object="${search}" method="post">
+            <table>
+                <tr>
+                    <th>Search in crew name:</th>
+                    <td><input type="text" data-th-field="*{searhInName}" /></td>
+                </tr>
+            </table>
+        </form>
+    </div>
     <div>
         <table>
             <tr>

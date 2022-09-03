@@ -1,6 +1,7 @@
 package app.services;
 
 import app.models.Crew;
+import app.models.CrewSearchForm;
 import app.repositories.CrewRepo;
 import org.springframework.stereotype.Service;
 
@@ -19,5 +20,9 @@ public class CrewService {
 
     public List<Crew> getAll() {
         return new ArrayList<>((Collection) crewRepo.findAll());
+    }
+
+    public List<Crew> findAllContaining(CrewSearchForm search) {
+        return new ArrayList<>((Collection) crewRepo.findCrewByCrewNameContaining(search.getSearhInName()));
     }
 }
