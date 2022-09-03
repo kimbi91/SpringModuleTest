@@ -1,0 +1,23 @@
+package app.services;
+
+import app.models.SpaceShip;
+import app.repositories.SpaceShipRepo;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Collection;
+
+@Service
+public class SpaceShipService {
+
+    private final SpaceShipRepo spaceShipRepo;
+
+    public SpaceShipService(SpaceShipRepo spaceShipRepo) {
+        this.spaceShipRepo = spaceShipRepo;
+    }
+
+    public List<SpaceShip> getAll() {
+        return new ArrayList<>((Collection) spaceShipRepo.findAll());
+    }
+}
