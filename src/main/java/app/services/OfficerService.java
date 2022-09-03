@@ -1,7 +1,6 @@
 package app.services;
 
 import app.models.Officer;
-import app.models.SpaceShip;
 import app.repositories.OfficerRepo;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -34,9 +33,8 @@ public class OfficerService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<Officer> officerOptional = officerRepo.findByUsername(username);
-        Officer officerData = officerOptional.orElseThrow(() -> new UsernameNotFoundException("User not found."));
 
-        return (UserDetails) officerData;
+        return officerOptional.orElseThrow(() -> new UsernameNotFoundException("User not found."));
     }
 
     @Transactional
