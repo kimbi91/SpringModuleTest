@@ -28,4 +28,10 @@ public class SpaceShipService {
     public SpaceShip findByName(String name) {
         return spaceShipRepo.findByName(name);
     }
+
+    public SpaceShip saveShip(SpaceShip spaceShip) {
+        spaceShipRepo.save(spaceShip);
+
+        return spaceShip;
+    }
 }
