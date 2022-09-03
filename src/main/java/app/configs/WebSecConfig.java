@@ -29,7 +29,7 @@ public class WebSecConfig extends WebSecurityConfigurerAdapter {
                 .invalidateHttpSession(true)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/spaceship")
+                .antMatchers("/spaceship", "/crews/new")
                 .authenticated()
                 .anyRequest().permitAll();
     }

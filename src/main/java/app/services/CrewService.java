@@ -25,4 +25,10 @@ public class CrewService {
     public List<Crew> findAllContaining(CrewSearchForm search) {
         return new ArrayList<>((Collection) crewRepo.findCrewByCrewNameContaining(search.getSearhInName()));
     }
+
+    public Crew saveCrew(Crew crew) {
+        crewRepo.save(crew);
+
+        return crew;
+    }
 }

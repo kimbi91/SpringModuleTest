@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New crew member</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div id="container">
+
+    <form data-th-action="@{/crews/new}" data-th-object="${newCrew}" method="post">
+        <table>
+            <tr>
+                <th>Name:</th>
+                <td><input type="text" data-th-field="*{crewName}" /></td>
+            </tr>
+            <tr>
+                <th>Rank:</th>
+                <td>
+                    <select data-th-field="*{crewRank}">
+                        <option data-th-each="rank : ${ranks}"
+                                data-th-value="${rank}"
+                                data-th-text="${rank}">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Duty ship</th>
+                <td>
+                    <select data-th-field="*{dutyShip.name}">
+                        <option data-th-each="ship : ${ships}"
+                                data-th-value="${ship.name}"
+                                data-th-text="${ship.name}">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><button class="send_button" type="submit">Create</button></td>
+            </tr>
+        </table>
+
+    </form>
+
+</div>
+</body>
+</html>
