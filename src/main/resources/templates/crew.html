@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of the crew</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div id="container">
+    <div id="menubar">
+        <a data-th-href="@{/fleet}">Return</a>
+    </div>
+    <div>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Rank</th>
+            </tr>
+            <tr data-th-each="crew : ${spaceship.crews}">
+                <td data-th-text="${crew.crewName}"></td>
+                <td data-th-text="${crew.crewRank}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

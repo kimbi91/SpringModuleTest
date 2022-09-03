@@ -6,6 +6,7 @@ import app.services.SpaceShipService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -40,6 +41,14 @@ public class SpaceShipController {
         model.addAttribute("spaceships", spaceShips);
 
         return "fleet";
+    }
+
+    @GetMapping(value = {"/fleet/{name}"})
+    public String getShipCrew(@PathVariable String name, Model model) {
+        SpaceShip spaceShip = spaceShipService.findByName(name);
+        model.addAttribute("spaceship", spaceShip);
+
+        return "crew";
     }
 
 }

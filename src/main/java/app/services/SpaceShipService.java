@@ -24,4 +24,8 @@ public class SpaceShipService {
     public List<SpaceShip> getActiveShips() {
         return new ArrayList<>((Collection) spaceShipRepo.findByIsActiveTrue());
     }
+
+    public SpaceShip findByName(String name) {
+        return spaceShipRepo.findByName(name);
+    }
 }
